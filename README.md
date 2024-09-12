@@ -1,8 +1,16 @@
-# React + Vite
+## Message Encryption and Decryption App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application allows users to encrypt and decrypt messages securely. It provides an easy-to-use interface for entering plain text messages, which are then converted into encrypted text using secure algorithms. Similarly, users can decrypt previously encrypted messages to reveal the original text.
 
-Currently, two official plugins are available:
+### Features:
+- Encrypts plain text messages into a secure format.
+- Decrypts encrypted messages back to their original form.
+- User-friendly interface for seamless encryption and decryption.
+- Built with security and privacy in mind.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Usage:
+1. Enter the message you want to encrypt.
+2. Click the "Encrypt" button to generate the encrypted message.
+3. To decrypt, paste the encrypted message and click the "Decrypt" button.
+
+This app ensures the confidentiality of your messages.
