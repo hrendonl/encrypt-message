@@ -1,0 +1,41 @@
+form {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.label {
+  color: #818181;
+  font-weight: bold;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #4f545c;
+  font-weight: normal;
+}
+
+.container-element {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  overflow: hidden;
+}
+
+.disabled-label {
+  color: #424242;
+}
+
+/* button[disabled].button-action {
+    
+    } */
+
+.container-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

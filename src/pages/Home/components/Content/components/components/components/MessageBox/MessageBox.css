@@ -1,0 +1,56 @@
+.encrypt-buttons {
+    display: flex;
+    column-gap: 5px;
+  }
+  
+  .reset-button {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+    color: #7e7e7e;
+  }
+
+  .button-action {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    background: #4a4a4a;
+    border: 1px solid #4a4a4a;
+    color: var(--high-light);
+    /* width: 10%; */
+    padding: 0px 25px;
+    border-radius: 8px;
+    height: 30px;
+    font-weight: bold;
+  }
+
+  textarea {
+    font-family: "Roboto", sans-serif;
+    resize: none;
+    border-radius: 8px;
+    background-color: #282d34;
+    border: 2px solid #181818;
+    color: #e6cd37;
+    height: 100px;
+    padding: 15px;
+    font-size: 15px;
+  }
+  
+  textarea:focus {
+    border: 2px solid var(--primary);
+    outline: none;
+  }
+  
+  textarea[disabled] {
+    background-color: #282828;
+    border: 1px solid #282828;
+  }
+  
+  textarea[disabled]::placeholder {
+    color: #363636;
+  }
+  
+  

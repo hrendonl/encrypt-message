@@ -1,0 +1,30 @@
+header {
+  background: var(--dark-2);
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.container-logo {
+  padding: 40px 20px;
+}
+
+.logo {
+  height: 38px;
+}
+
+h1 {
+  color: white;
+}

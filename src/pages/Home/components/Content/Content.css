@@ -1,0 +1,11 @@
+main.content {
+  background: var(--dark-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+

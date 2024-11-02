@@ -1,0 +1,11 @@
+.copy-button {
+    display: flex;
+    column-gap: 5px;
+    background-color: transparent;
+    color: #818181;
+    border: 1px solid transparent;
+    cursor: pointer;
+    /* border-radius: 8px; */
+    /* padding: 10px; */
+  }
+  

@@ -1,0 +1,34 @@
+.content-label-result {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-font);
+    padding: 10px 15px;
+  }
+  
+  .container-result {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .result-label {
+    color: #818181;
+  }
+
+  .messageEncrypted {
+    background: #181818;
+    color: var(--primary-light);
+    font-weight: bold;
+    height: 100px;
+    overflow-y: auto;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    padding: 20px 15px;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #2e2e2e;
+    border-radius: 0px 0px 8px 8px;
+  }
+  
+  .messageEncrypted::selection {
+      background-color: #1a1a1a;
+  }
