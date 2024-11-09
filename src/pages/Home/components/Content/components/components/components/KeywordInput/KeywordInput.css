@@ -1,7 +1,7 @@
 input {
   color: var(--secondary);
   width: 100%;
-  background-color: #2d323a;
+  background-color: #3d3d3d;
   border: 2px solid transparent;
   height: 25px;
   padding: 10px;
@@ -26,10 +26,9 @@ input:focus {
 .icon-input-container {
   display: flex;
   align-items: center;
-  border-right: 1px solid #2a2a2a;
-  background: #323232;
+  background: #3d3d3d;
   height: 100%;
   font-size: 25px;
-  color: #8f8f8f;
+  color: #6b6e66;
   padding: 10px 15px;
 }

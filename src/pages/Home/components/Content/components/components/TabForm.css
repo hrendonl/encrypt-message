@@ -4,7 +4,7 @@ form {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  padding: 30px 20px;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
@@ -15,7 +15,7 @@ form {
 
 input::placeholder,
 textarea::placeholder {
-  color: #4f545c;
+  color: #6b6e66;
   font-weight: normal;
 }
 

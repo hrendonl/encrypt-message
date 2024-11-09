@@ -34,7 +34,7 @@ export const TabForm = ({ tabActivated }) => {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <KeywordInput onKeywordChange={onElementChange} keyword={keyword}/>
+      <KeywordInput onKeywordChange={onElementChange} keyword={keyword} />
       <MessageBox
         tabActivated={tabActivated}
         message={message}
