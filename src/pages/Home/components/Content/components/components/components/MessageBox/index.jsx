@@ -43,11 +43,7 @@ export const MessageBox = ({
       <textarea
         name={nameTextarea}
         onChange={onTextareaChange}
-        placeholder={
-          tabActivated == "encrypt"
-            ? "Escribe el mensaje que deseas cifrar"
-            : "Escribe el mensaje cifrado"
-        }
+        placeholder="Escribe el mensaje que deseas cifrar o descifrar"
         value={message}
       />
       <div className="buttons-actions">

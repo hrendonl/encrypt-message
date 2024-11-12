@@ -8,6 +8,11 @@ export const Header = () => {
         <div className="container-logo">
           <img className="logo" src={hclogo} alt="logo" />
         </div>
+        <button className="button-language">
+        <i class="bi bi-globe"></i>
+        Español
+        </button>
+        
       </div>
     </header>
   );

@@ -13,8 +13,8 @@
   .messageEncrypted {
     background: #15181d;
     color: var(--primary);
-    font-weight: bold;
     height: 100px;
+    text-align: center;
     border-radius: 8px;
     overflow-y: auto;
     word-wrap: break-word; 
