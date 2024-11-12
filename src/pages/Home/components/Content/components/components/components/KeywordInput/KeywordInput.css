@@ -25,9 +25,7 @@ input:focus {
   z-index: 2;
   align-items: center;
   background-color: #15181d;
-  /* border: 2px solid var(--color-borde-azul); */
   border-radius: 8px;
-  /* background-color: #39424e; */
   overflow: hidden;
 }
 
@@ -49,6 +47,7 @@ input:focus {
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   z-index: -1;
 }

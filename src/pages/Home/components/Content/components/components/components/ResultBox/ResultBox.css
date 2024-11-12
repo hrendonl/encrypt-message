@@ -18,7 +18,7 @@
     overflow-y: auto;
     word-wrap: break-word; 
     overflow-wrap: break-word;
-    border: 1px solid var(--color-borde-azul);
+    border: 1px solid #3438418a;
     padding: 20px 15px;
   }
   

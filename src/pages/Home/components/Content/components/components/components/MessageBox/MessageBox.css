@@ -50,7 +50,6 @@ textarea {
   resize: none;
   background-color: transparent;
   border: none;
-  
   color: white;
   height: 100px;
   width: 100%;
@@ -99,6 +98,7 @@ textarea:focus {
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
+  mask:  linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   z-index: -1;
 }
