@@ -18,7 +18,8 @@
   color: var(--dark-blue);
 }
 
-.button-primary, .button-secondary {
+.button-primary,
+.button-secondary {
   width: 50%;
   font-size: 16px;
   display: flex;
@@ -35,7 +36,7 @@
 .button-secondary {
   background: #404650;
   border: 1px solid #404650;
-  color: white
+  color: white;
 }
 
 .buttons-actions {
@@ -47,13 +48,15 @@
 textarea {
   font-family: "Roboto", sans-serif;
   resize: none;
-  background-color: #15181d;
-  border: 2px solid var(--color-borde-azul);
-  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+  
   color: white;
   height: 100px;
-  padding: 15px;
+  width: 100%;
+  padding: 0px;
   font-size: 15px;
+  z-index: 1;
 }
 
 textarea::placeholder {
@@ -61,8 +64,53 @@ textarea::placeholder {
 }
 
 textarea:focus {
-  border: 2px solid #3acfd5;
+  border: none;
   outline: none;
+}
+
+.textarea-container {
+  position: relative;
+  padding: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #15181d;
+  z-index: 2;
+}
+
+.textarea-focus {
+  background-color: #0000004d;
+}
+
+.textarea-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(
+    83.23deg,
+    rgba(254, 177, 84, 0.5) -6.32%,
+    rgba(210, 99, 238, 0.5) 23.89%,
+    rgba(93, 90, 246, 0.5) 67.88%,
+    rgba(9, 224, 160, 0.5) 107.67%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.textarea-container:focus-within::before {
+  background: linear-gradient(
+    83.23deg,
+    #feb154 -6.32%,
+    #d263ee 23.89%,
+    #5d5af6 67.88%,
+    #09e0a0 107.67%
+  );
 }
 
 textarea[disabled] {
