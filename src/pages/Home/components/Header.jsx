@@ -1,5 +1,5 @@
 import "./Header.css";
-import hclogo from "../../../assets/hcencrypt.png";
+import hclogo from "../../../assets/hcencript.png";
 
 export const Header = () => {
   return (

@@ -8,30 +8,26 @@ export const MessageBox = ({
   onMessageChange,
   resetProcessedMessage,
 }) => {
-
-  const nameTextarea = "message"
+  const nameTextarea = "message";
 
   const onTextareaChange = (e) => {
     onMessageChange(e);
     resetProcessedMessage();
-  }
+  };
 
   const resetTextarea = () => {
-    resetMessage(nameTextarea)
+    resetMessage(nameTextarea);
     resetProcessedMessage();
-  }
+  };
 
   useEffect(() => {
     resetProcessedMessage();
-  }, [tabActivated])
-  
+  }, [tabActivated]);
 
   return (
     <div className="container-element">
       <div className="container-label">
-        <div className="label">
-          {tabActivated == "encrypt" ? "Mensaje a cifrar:" : "Mensaje cifrado:"}
-        </div>
+        <div className="label">Mensaje</div>
         <div className="encrypt-buttons">
           {message != "" && (
             <button
@@ -42,15 +38,6 @@ export const MessageBox = ({
               <i className="bi bi-arrow-counterclockwise"></i>
             </button>
           )}
-
-          <button type="submit" className="button-action">
-            {tabActivated == "encrypt" ? (
-              <i className="bi bi-lock-fill"></i>
-            ) : (
-              <i className="bi bi-unlock-fill"></i>
-            )}
-            {tabActivated == "encrypt" ? "Cifrar" : "Decifrar"}
-          </button>
         </div>
       </div>
       <textarea
@@ -63,6 +50,16 @@ export const MessageBox = ({
         }
         value={message}
       />
+      <div className="buttons-actions">
+        <button type="submit" className="button-secondary">
+          <i className="bi bi-unlock-fill"></i>
+          Decifrar
+        </button>
+        <button type="submit" className="button-primary">
+          <i className="bi bi-lock-fill"></i>
+          Cifrar
+        </button>
+      </div>
     </div>
   );
 };

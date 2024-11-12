@@ -1,56 +1,75 @@
 .encrypt-buttons {
-    display: flex;
-    column-gap: 5px;
-  }
-  
-  .reset-button {
-    font-weight: bold;
-    font-size: 20px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid transparent;
-    color: #7e7e7e;
-  }
+  display: flex;
+  column-gap: 5px;
+}
 
-  .button-action {
-    display: flex;
-    column-gap: 5px;
-    align-items: center;
-    cursor: pointer;
-    background: #323232;
-    border: 1px solid #323232;
-    color: var(--high-light);
-    /* width: 10%; */
-    padding: 0px 25px;
-    border-radius: 8px;
-    height: 30px;
-    font-weight: bold;
-  }
+.reset-button {
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #9091a8;
+}
 
-  textarea {
-    font-family: "Roboto", sans-serif;
-    resize: none;
-    border-radius: 8px;
-    background-color: #3d3d3d;
-    border: 2px solid #181818;
-    color: #e6cd37;
-    height: 100px;
-    padding: 15px;
-    font-size: 15px;
-  }
-  
-  textarea:focus {
-    border: 2px solid var(--primary);
-    outline: none;
-  }
-  
-  textarea[disabled] {
-    background-color: #282828;
-    border: 1px solid #282828;
-  }
-  
-  textarea[disabled]::placeholder {
-    color: #363636;
-  }
-  
-  
+.button-primary {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: var(--dark-blue);
+}
+
+.button-primary, .button-secondary {
+  width: 50%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  padding: 0px 25px;
+  border-radius: 8px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.button-secondary {
+  background: #404650;
+  border: 1px solid #404650;
+  color: white
+}
+
+.buttons-actions {
+  display: flex;
+  column-gap: 10px;
+  margin-top: 10px;
+}
+
+textarea {
+  font-family: "Roboto", sans-serif;
+  resize: none;
+  background-color: #15181d;
+  border: 2px solid var(--color-borde-azul);
+  border-radius: 8px;
+  color: white;
+  height: 100px;
+  padding: 15px;
+  font-size: 15px;
+}
+
+textarea::placeholder {
+  color: #515863;
+}
+
+textarea:focus {
+  border: 2px solid #3acfd5;
+  outline: none;
+}
+
+textarea[disabled] {
+  background-color: #282828;
+  border: 1px solid #282828;
+}
+
+textarea[disabled]::placeholder {
+  color: #363636;
+}

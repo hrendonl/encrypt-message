@@ -1,11 +1,17 @@
 :root {
-  --primary: #a8e537;
-  --primary-light: #d2ff80;
-  --secondary: #37cae6;
+  --primary: #20d761;
+  --primary-light: #99fabb;
+  --secondary: #20D1D6;
   --high-light: #ffffff;
   --color-font: #242424;
-  --dark-1: #0e0e0e;
-  --dark-2: #1a1a1a;
+  --dark-1: #121418;
+  --dark-2: #1f202a;
+  --dark-blue: #13161c;
+  --placeholder-color: #646464;
+  --button-font-color: #121418;
+  --color-borde-azul: #2f333a;
+  --color-border-focus: #3acfd5;
+  --color-placeholder: #515863;
 }
 
 html, body {
@@ -17,6 +23,6 @@ html, body {
 body {
   font-family: "Roboto", sans-serif;
   width: 100%;
-  background-color: var(--dark-1);
+  background-color: var(--dark-blue);
   margin: 0;
 }

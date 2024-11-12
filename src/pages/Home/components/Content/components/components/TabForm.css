@@ -1,22 +1,16 @@
 form {
   width: 100%;
-  max-width: 1000px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   row-gap: 30px;
-  padding: 40px 20px;
+  padding: 50px 0px;
   box-sizing: border-box;
 }
 
 .label {
-  color: #818181;
+  color: #d6d7e4;
   font-weight: bold;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #5b5f58;
-  font-weight: normal;
 }
 
 .container-element {

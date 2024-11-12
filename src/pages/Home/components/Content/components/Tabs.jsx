@@ -11,7 +11,7 @@ export const Tabs = () => {
 
   return (
     <div className="tabs-container">
-      <nav className="tabs">
+      {/* <nav className="tabs">
         <ul>
           {tabs.map((tab) => (
             <li
@@ -25,7 +25,7 @@ export const Tabs = () => {
             </li>
           ))}
         </ul>
-      </nav>
+      </nav> */}
       <div className="tab-content">
         <TabForm tabActivated={tabActivated}/>
       </div>

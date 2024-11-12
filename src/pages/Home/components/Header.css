@@ -1,24 +1,24 @@
 header {
-  background: var(--dark-2);
+  background: transparent;
   width: 100%;
-  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  padding: 0px 20px;
 }
 
 .header-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .container-logo {
-  padding: 40px 20px;
+  padding: 40px 0px;
 }
 
 .logo {
