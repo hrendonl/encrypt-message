@@ -3,7 +3,7 @@ input {
   width: 100%;
   background-color: transparent;
   border: 1px solid transparent;
-  height: 25px;
+  height: 30px;
   padding: 10px 0px;
   font-weight: bold;
   font-size: 15px;
@@ -24,7 +24,7 @@ input:focus {
   position: relative;
   z-index: 2;
   align-items: center;
-  background-color: #15181d;
+  background-color: #0000004d;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -60,10 +60,6 @@ input:focus {
     #5d5af6 67.88%,
     #09e0a0 107.67%
   );
-}
-
-.input-focus {
-  background-color: #0000004d;
 }
 
 .icon-input-container {

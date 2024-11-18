@@ -12,39 +12,6 @@
   color: #9091a8;
 }
 
-.button-primary {
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-  color: var(--dark-blue);
-}
-
-.button-primary,
-.button-secondary {
-  width: 50%;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  column-gap: 5px;
-  align-items: center;
-  cursor: pointer;
-  padding: 0px 25px;
-  border-radius: 8px;
-  height: 40px;
-  font-weight: bold;
-}
-
-.button-secondary {
-  background: #404650;
-  border: 1px solid #404650;
-  color: white;
-}
-
-.buttons-actions {
-  display: flex;
-  column-gap: 10px;
-  margin-top: 10px;
-}
-
 textarea {
   font-family: "Roboto", sans-serif;
   resize: none;
@@ -72,12 +39,8 @@ textarea:focus {
   padding: 15px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #15181d;
-  z-index: 2;
-}
-
-.textarea-focus {
   background-color: #0000004d;
+  z-index: 2;
 }
 
 .textarea-container::before {

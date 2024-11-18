@@ -8,25 +8,17 @@ form {
   box-sizing: border-box;
 }
 
-.label {
+.form-element-label {
   color: #d6d7e4;
   font-weight: bold;
 }
 
-.container-element {
+.form-element-container{
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: 15px;
   overflow: hidden;
 }
-
-.disabled-label {
-  color: #424242;
-}
-
-/* button[disabled].button-action {
-    
-    } */
 
 .container-label {
   display: flex;

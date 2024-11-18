@@ -1,5 +1,5 @@
 import "./CopyButton.css";
-import { useCopyToClipboard } from "../../../../../../../../../hooks/useCopyToClipboard"; 
+import { useCopyToClipboard } from "../../../../../../../../hooks/useCopyToClipboard"; 
 
 export const CopyButton = ({ text, textContainerId }) => {
   const { isCopy, copy } = useCopyToClipboard(textContainerId);

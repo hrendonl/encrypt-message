@@ -1,10 +1,11 @@
 import "./Content.css";
-import { Tabs } from "./components/Tabs";
+
+import { Form } from "./components/Form";
 
 export const Content = () => {
   return (
     <main className="content">
-     <Tabs />
+    <Form />
     </main>
   );
 };

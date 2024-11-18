@@ -1,5 +1,5 @@
 import "./Header.css";
-import hclogo from "../../../assets/hcencript.png";
+import hclogo from "../../../../assets/hcencript.png";
 
 export const Header = () => {
   return (
@@ -9,10 +9,9 @@ export const Header = () => {
           <img className="logo" src={hclogo} alt="logo" />
         </div>
         <button className="button-language">
-        <i class="bi bi-globe"></i>
-        Español
+          <i className="bi bi-globe"></i>
+          Español
         </button>
-        
       </div>
     </header>
   );
