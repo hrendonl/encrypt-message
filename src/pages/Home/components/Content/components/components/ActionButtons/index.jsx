@@ -5,7 +5,7 @@ export const ActionsButtons = ({setButtonActivated}) => {
     <div className="buttons-container">
     <button type="submit" onClick={()=>setButtonActivated("decrypt")} className="button-secondary">
       <i className="bi bi-unlock-fill"></i>
-      Decifrar
+      Descifrar
     </button>
     <button type="submit" onClick={()=>setButtonActivated("encrypt")} className="button-primary">
       <i className="bi bi-lock-fill"></i>
