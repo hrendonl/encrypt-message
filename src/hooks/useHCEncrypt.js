@@ -2,7 +2,7 @@ import { useState } from "react";
 import { calculateKeyNumber } from "../helpers/calculateKeyNumber";
 
 export const useHCEncrypt = () => {
-  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/ \n\r";
+  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/-_\n\r";
   const CHARSET_NUMBERS = Object.fromEntries(
     Array.from(CHARSET).map((letter, index) => [
       `${letter}`,
