@@ -2,9 +2,9 @@ import { useState } from "react";
 import { calculateKeyNumber } from "../helpers/calculateKeyNumber";
 
 export const useHCEncrypt = () => {
-  const ALPHABET = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-  const ALPHABET_NUMBERS = Object.fromEntries(
-    Array.from(ALPHABET).map((letter, index) => [
+  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/"; 
+  const CHARSET_NUMBERS = Object.fromEntries(
+    Array.from(CHARSET).map((letter, index) => [
       `${letter}`,
       Number(`${index + 1}`),
     ])
@@ -19,7 +19,7 @@ export const useHCEncrypt = () => {
     messageSplit.map((word, index) => {
       const wordEncode = Array.from(word).map((letter, indexLetter) => {
         const letterCode =
-          ALPHABET_NUMBERS[letter] * calculateKeyNumber(keyword, ALPHABET_NUMBERS) +
+          CHARSET_NUMBERS[letter] * calculateKeyNumber(keyword, CHARSET_NUMBERS) +
           (indexLetter + 1);
         return letterCode.toString();
       });
@@ -42,9 +42,9 @@ export const useHCEncrypt = () => {
       const wordDecode = wordEncryptedSplit.map((letterCode, indexLetter) => {
         const letterNumber =
           (Number(letterCode) - (indexLetter + 1)) /
-          calculateKeyNumber(keyword, ALPHABET_NUMBERS);
-        const letter = Object.keys(ALPHABET_NUMBERS).find(
-          (key) => ALPHABET_NUMBERS[key] == letterNumber
+          calculateKeyNumber(keyword, CHARSET_NUMBERS);
+        const letter = Object.keys(CHARSET_NUMBERS).find(
+          (key) => CHARSET_NUMBERS[key] == letterNumber
         );
         return letter;
       });
