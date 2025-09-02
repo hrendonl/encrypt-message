@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { calculateKeyNumber } from "../helpers/calculateKeyNumber";
 
 export const useHCEncrypt = () => {
   const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/-_\n\r";
-  const CHARSET_NUMBERS = Object.fromEntries(
-    Array.from(CHARSET).map((letter, index) => [
-      `${letter}`,
-      Number(`${index + 1}`),
-    ])
-  );
+  const CHARSET_NUMBERS = useMemo(() => {
+    return Object.fromEntries(
+      Array.from(CHARSET).map((letter, index) => [
+        `${letter}`,
+        index + 1,
+      ])
+    );
+  }, [CHARSET]);
 
   const [processedMessage, setProcessedMessage] = useState("");
 
