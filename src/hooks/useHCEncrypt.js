@@ -2,7 +2,7 @@ import { useState } from "react";
 import { calculateKeyNumber } from "../helpers/calculateKeyNumber";
 
 export const useHCEncrypt = () => {
-  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/"; 
+  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/ \n\r";
   const CHARSET_NUMBERS = Object.fromEntries(
     Array.from(CHARSET).map((letter, index) => [
       `${letter}`,
@@ -14,6 +14,7 @@ export const useHCEncrypt = () => {
 
   const encryptMessage = (keyword, message) => {
     const messageTrim = message.trim();
+    keyword = keyword.replaceAll(" ", "");
     const spacing = String.fromCharCode(65 + Math.floor(Math.random() * 26));
     const messageSplit = messageTrim.split(" ");
     messageSplit.map((word, index) => {
@@ -34,6 +35,7 @@ export const useHCEncrypt = () => {
 
   const decryptMessage = (keyword, message) => {
     const messageEncrypted = message;
+    keyword = keyword.replaceAll(" ", "");
     const messageEncryptedSplit = messageEncrypted.split(".");
     const spacing = messageEncryptedSplit.at(-1);
     messageEncryptedSplit.pop();
