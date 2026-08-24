@@ -41,8 +41,42 @@ h1 {
   border-radius: 8px;
   padding: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .button-language:hover {
   border: 1px solid white;
+}
+
+.language-container {
+  position: relative;
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background-color: #13161c;
+  border: 1px solid #404650;
+  border-radius: 8px;
+  list-style: none;
+  padding: 5px 0;
+  width: 100%;
+  min-width: 120px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.language-item {
+  padding: 8px 12px;
+  color: #c4c8ce;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.language-item:hover {
+  background-color: #2a2f38;
+  color: white;
 }

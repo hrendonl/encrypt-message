@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./MessageBox.css";
 
 export const MessageBox = ({
@@ -6,6 +7,7 @@ export const MessageBox = ({
   register,
   resetProcessedMessage,
 }) => {
+  const { t } = useTranslation();
   const resetTextarea = () => {
     reset("message", "");
     resetProcessedMessage();
@@ -14,7 +16,7 @@ export const MessageBox = ({
   return (
     <div className="form-element-container">
       <div className="container-label">
-        <div className="form-element-label">Mensaje</div>
+        <div className="form-element-label">{t("form.message.label")}</div>
         <div className="encrypt-buttons">
           {getMessage("message") != "" && (
             <button
@@ -30,7 +32,7 @@ export const MessageBox = ({
       <div className="textarea-container">
         <textarea
           {...register("message")}
-          placeholder="Escribe el mensaje que deseas cifrar o descifrar"
+          placeholder={t("form.message.placeholder")}
         />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Form.css";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { useHCEncrypt } from "../../../../../hooks/useHCEncrypt";
 import { KeywordInput } from "./components/KeywordInput";
 import { MessageBox } from "./components/MessageBox";
@@ -8,6 +9,7 @@ import { ResultBox } from "./components/ResultBox";
 import { ActionsButtons } from "./components/ActionButtons";
 
 export const Form = () => {
+  const { t } = useTranslation();
   const {
     watch,
     register,
@@ -41,7 +43,7 @@ export const Form = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-element-container">
-        <div className="form-element-label">Palabra clave:</div>
+        <div className="form-element-label">{t("form.keyword.label")}</div>
         <KeywordInput register={register} />
       </div>
         <MessageBox

@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import "./CopyButton.css";
 import { useCopyToClipboard } from "../../../../../../../../hooks/useCopyToClipboard"; 
 
 export const CopyButton = ({ text, textContainerId }) => {
+  const { t } = useTranslation();
   const { isCopy, copy } = useCopyToClipboard(textContainerId);
 
   const handleClick = () => {
@@ -15,7 +17,7 @@ export const CopyButton = ({ text, textContainerId }) => {
       ) : (
         <i className="bi bi-copy"></i>
       )}
-      {isCopy ? "¡Copiado!" : "Copiar mensaje"}
+      {isCopy ? t("action.copied") : t("action.copy")}
     </button>
   );
 };
