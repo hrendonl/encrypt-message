@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "./Header.css";
-import hclogo from "../../../../assets/hcencript.png";
+import hclogo from "../../assets/hcencript.png";
 
 export const Header = () => {
   const { i18n, t } = useTranslation();
@@ -17,7 +17,6 @@ export const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Close language menu on click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {

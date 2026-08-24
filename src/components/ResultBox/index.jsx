@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import "./ResultBox.css";
-import { CopyButton } from "./components/CopyButton";
+import { CopyButton } from "../CopyButton";
 
 export const ResultBox = ({ processedMessage, watch, setValue }) => {
   const { t } = useTranslation();
@@ -35,10 +35,7 @@ export const ResultBox = ({ processedMessage, watch, setValue }) => {
                 <span>{t("action.useAsInput")}</span>
               </button>
             )}
-            <CopyButton
-              text={processedMessage}
-              textContainerId="processedMessage"
-            />
+            <CopyButton text={processedMessage} />
           </div>
         )}
       </div>

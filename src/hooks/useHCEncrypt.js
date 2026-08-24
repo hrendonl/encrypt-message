@@ -1,65 +1,78 @@
-import { useMemo, useState } from "react";
+import { useState, useCallback } from "react";
 import { calculateKeyNumber } from "../helpers/calculateKeyNumber";
 
-export const useHCEncrypt = () => {
-  const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/-_\n\r";
-  const CHARSET_NUMBERS = useMemo(() => {
-    return Object.fromEntries(
-      Array.from(CHARSET).map((letter, index) => [
-        `${letter}`,
-        index + 1,
-      ])
-    );
-  }, [CHARSET]);
+const CHARSET = "abcdefghijklmnñopqrstuvwxyzáéíóúABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ0123456789,.;:¡!¿?\"'\\/-_\n\r";
 
+// Static mapping created once outside component renders
+const CHARSET_NUMBERS = Object.fromEntries(
+  Array.from(CHARSET).map((letter, index) => [letter, index + 1])
+);
+
+// O(1) reverse lookup map for decryption
+const NUMBER_TO_CHAR = Object.fromEntries(
+  Array.from(CHARSET).map((letter, index) => [index + 1, letter])
+);
+
+export const useHCEncrypt = () => {
   const [processedMessage, setProcessedMessage] = useState("");
 
-  const encryptMessage = (keyword, message) => {
-    const messageTrim = message.trim();
-    keyword = keyword.replaceAll(" ", "");
-    const spacing = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    const messageSplit = messageTrim.split(" ");
-    messageSplit.map((word, index) => {
-      const wordEncode = Array.from(word).map((letter, indexLetter) => {
-        const letterCode =
-          CHARSET_NUMBERS[letter] * calculateKeyNumber(keyword, CHARSET_NUMBERS) +
-          (indexLetter + 1);
-        return letterCode.toString();
-      });
-      messageSplit[index] = wordEncode.join(spacing);
-    });
-    if (messageSplit.join(".") != "") {
-      setProcessedMessage(`${messageSplit.join(".")}.${spacing}`);
-    } else {
+  const encryptMessage = useCallback((keyword, message) => {
+    if (!message || !keyword) {
       setProcessedMessage("");
+      return;
     }
-  };
 
-  const decryptMessage = (keyword, message) => {
-    const messageEncrypted = message;
-    keyword = keyword.replaceAll(" ", "");
-    const messageEncryptedSplit = messageEncrypted.split(".");
-    const spacing = messageEncryptedSplit.at(-1);
-    messageEncryptedSplit.pop();
-    messageEncryptedSplit.map((wordEncrypted, index) => {
-      const wordEncryptedSplit = wordEncrypted.split(spacing);
-      const wordDecode = wordEncryptedSplit.map((letterCode, indexLetter) => {
-        const letterNumber =
-          (Number(letterCode) - (indexLetter + 1)) /
-          calculateKeyNumber(keyword, CHARSET_NUMBERS);
-        const letter = Object.keys(CHARSET_NUMBERS).find(
-          (key) => CHARSET_NUMBERS[key] == letterNumber
-        );
-        return letter;
-      });
-      messageEncryptedSplit[index] = wordDecode.join("");
+    const messageTrim = message.trim();
+    const cleanKeyword = keyword.replaceAll(" ", "");
+    const spacing = String.fromCharCode(65 + Math.floor(Math.random() * 26)); // Random uppercase delimiter A-Z
+    const keyNum = calculateKeyNumber(cleanKeyword, CHARSET_NUMBERS);
+
+    const messageWords = messageTrim.split(" ");
+    const encodedWords = messageWords.map((word) => {
+      return Array.from(word)
+        .map((letter, indexLetter) => {
+          const charCode = CHARSET_NUMBERS[letter] || 0;
+          const letterCode = charCode * keyNum + (indexLetter + 1);
+          return letterCode.toString();
+        })
+        .join(spacing);
     });
-    setProcessedMessage(messageEncryptedSplit.join(" "));
-  };
 
-  const resetProcessedMessage = () => {
-    setProcessedMessage("")
-  }
+    const result = encodedWords.join(".");
+    setProcessedMessage(result ? `${result}.${spacing}` : "");
+  }, []);
+
+  const decryptMessage = useCallback((keyword, message) => {
+    if (!message || !keyword) {
+      setProcessedMessage("");
+      return;
+    }
+
+    const cleanKeyword = keyword.replaceAll(" ", "");
+    const messageEncryptedSplit = message.split(".");
+    const spacing = messageEncryptedSplit.at(-1);
+    const keyNum = calculateKeyNumber(cleanKeyword, CHARSET_NUMBERS);
+
+    // Remove the trailing spacing character
+    const wordsEncrypted = messageEncryptedSplit.slice(0, -1);
+
+    const decodedWords = wordsEncrypted.map((wordEncrypted) => {
+      const wordEncryptedCodes = wordEncrypted.split(spacing);
+      return wordEncryptedCodes
+        .map((letterCode, indexLetter) => {
+          const letterNumber = (Number(letterCode) - (indexLetter + 1)) / keyNum;
+          // O(1) lookup
+          return NUMBER_TO_CHAR[letterNumber] || "";
+        })
+        .join("");
+    });
+
+    setProcessedMessage(decodedWords.join(" "));
+  }, []);
+
+  const resetProcessedMessage = useCallback(() => {
+    setProcessedMessage("");
+  }, []);
 
   return {
     processedMessage,

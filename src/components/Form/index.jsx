@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./Form.css";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useHCEncrypt } from "../../../../../hooks/useHCEncrypt";
-import { KeywordInput } from "./components/KeywordInput";
-import { MessageBox } from "./components/MessageBox";
-import { ResultBox } from "./components/ResultBox";
-import { ActionsButtons } from "./components/ActionButtons";
+import { useHCEncrypt } from "../../hooks/useHCEncrypt";
+import { KeywordInput } from "../KeywordInput";
+import { MessageBox } from "../MessageBox";
+import { ResultBox } from "../ResultBox";
+import { ActionsButtons } from "../ActionButtons";
 
 export const Form = () => {
   const { t } = useTranslation();

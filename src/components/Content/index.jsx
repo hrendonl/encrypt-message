@@ -1,11 +1,10 @@
 import "./Content.css";
-
-import { Form } from "./components/Form";
+import { Form } from "../Form";
 
 export const Content = () => {
   return (
     <main className="content">
-    <Form />
+      <Form />
     </main>
   );
 };

@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import "./CopyButton.css";
-import { useCopyToClipboard } from "../../../../../../../../hooks/useCopyToClipboard"; 
+import { useCopyToClipboard } from "../../hooks/useCopyToClipboard"; 
 
-export const CopyButton = ({ text, textContainerId }) => {
+export const CopyButton = ({ text }) => {
   const { t } = useTranslation();
-  const { isCopy, copy } = useCopyToClipboard(textContainerId);
+  const { isCopy, copy } = useCopyToClipboard();
 
   const handleClick = () => {
     copy(text);
@@ -26,5 +26,4 @@ export const CopyButton = ({ text, textContainerId }) => {
 
 CopyButton.propTypes = {
   text: PropTypes.string.isRequired,
-  textContainerId: PropTypes.string.isRequired,
 };

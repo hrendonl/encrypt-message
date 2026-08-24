@@ -1,51 +1,39 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
-export const useCopyToClipboard = (textContainerId) => {
-    const [isCopy, setIsCopy] = useState(false);
+export const useCopyToClipboard = (timeout = 2000) => {
+  const [isCopy, setIsCopy] = useState(false);
 
-    const copy = (text) => {
-      const div = document.getElementById(textContainerId);
-  
-      if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard
-          .writeText(text)
-          .then(() => {
-            setIsCopy(true);
-            setTimeout(() => {
-              setIsCopy(false);
-            }, 2000);
-          })
-          .catch((err) => {
-            console.error("Error al copiar: ", err);
-          });
-      } else {
-        const range = document.createRange();
-        range.selectNodeContents(div);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-  
-        try {
-          const successful = document.execCommand("copy");
-          if (successful) {
-            setIsCopy(true);
-            setTimeout(() => {
-              setIsCopy(false);
-              selection.removeAllRanges();
-              document.activeElement.blur();
-            }, 2000);
-          } else {
-            alert("Error al copiar al portapapeles");
-          }
-        } catch (err) {
-          console.error("Error al copiar: ", err);
-          alert("Error al copiar al portapapeles");
+  const copy = useCallback(
+    async (text) => {
+      if (!text) return false;
+
+      try {
+        if (navigator?.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          // Fallback for older browsers
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.focus();
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
         }
+
+        setIsCopy(true);
+        setTimeout(() => setIsCopy(false), timeout);
+        return true;
+      } catch (err) {
+        console.error("Failed to copy to clipboard:", err);
+        setIsCopy(false);
+        return false;
       }
-  }
-  
-  return {
-    isCopy,
-    copy
-  }
-}
+    },
+    [timeout]
+  );
+
+  return { isCopy, copy };
+};

@@ -7,7 +7,6 @@ export const KeywordInput = ({ register, setValue, watch }) => {
   const { t } = useTranslation();
   const [showKey, setShowKey] = useState(false);
   
-  // Watch keyword value to compute strength
   const keywordValue = watch ? watch("keyword") || "" : "";
 
   const toggleKeyVisibility = () => {
@@ -25,7 +24,6 @@ export const KeywordInput = ({ register, setValue, watch }) => {
     }
   };
 
-  // Compute key strength level (0 to 4)
   const getStrengthLevel = (val) => {
     if (!val) return 0;
     if (val.length < 4) return 1;
@@ -69,7 +67,6 @@ export const KeywordInput = ({ register, setValue, watch }) => {
         </div>
       </div>
       
-      {/* Key strength meter */}
       <div className="strength-meter-container">
         <div className="strength-label">
           <span>{t("form.keyword.strength")}</span>
