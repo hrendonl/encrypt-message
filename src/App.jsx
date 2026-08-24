@@ -6,8 +6,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="*" element={<h1>Not found 404</h1>} />
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<h1 style={{ textAlign: "center", marginTop: "50px" }}>404 - Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   );
