@@ -56,13 +56,13 @@ form {
   align-items: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   form {
-    padding: 24px 18px;
+    padding: 24px 16px;
     row-gap: 20px;
   }
   .cipher-card {
-    margin: 16px 12px 40px;
+    margin: 16px 10px 40px;
     border-radius: var(--radius-lg);
   }
 }

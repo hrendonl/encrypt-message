@@ -9,20 +9,20 @@ export const ActionsButtons = ({ setButtonActivated }) => {
     <div className="buttons-container">
       <button
         type="submit"
-        onClick={() => setButtonActivated("decrypt")}
-        className="button-secondary action-btn-decrypt"
-      >
-        <i className="bi bi-unlock-fill"></i>
-        <span>{t("action.decrypt")}</span>
-      </button>
-      
-      <button
-        type="submit"
         onClick={() => setButtonActivated("encrypt")}
         className="button-primary action-btn-encrypt"
       >
         <i className="bi bi-lock-fill"></i>
         <span>{t("action.encrypt")}</span>
+      </button>
+
+      <button
+        type="submit"
+        onClick={() => setButtonActivated("decrypt")}
+        className="button-secondary action-btn-decrypt"
+      >
+        <i className="bi bi-unlock-fill"></i>
+        <span>{t("action.decrypt")}</span>
       </button>
     </div>
   );

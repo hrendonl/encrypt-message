@@ -13,27 +13,29 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
   padding: 0 20px;
   border-radius: var(--radius-md);
   height: 48px;
+  min-height: 48px;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.3px;
 }
 
-/* Encrypt Button (Logo Green #00d857) */
+/* Encrypt Button (Primary - Logo Green #00d857) */
 .action-btn-encrypt {
   background: linear-gradient(135deg, #00d857 0%, #00b84a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #05140d;
-  box-shadow: 0 4px 16px rgba(0, 216, 87, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 216, 87, 0.3);
 }
 
 .action-btn-encrypt:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 216, 87, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 216, 87, 0.45);
   background: linear-gradient(135deg, #1ae068 0%, #00c44f 100%);
 }
 
@@ -41,27 +43,38 @@
   transform: translateY(0);
 }
 
-/* Decrypt Button (Indigo) */
+/* Decrypt Button (Secondary - High Contrast Electric Indigo) */
 .action-btn-decrypt {
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.35);
-  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.22);
+  border: 1.5px solid rgba(165, 180, 252, 0.45);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.25);
+  backdrop-filter: blur(8px);
 }
 
 .action-btn-decrypt:hover {
   transform: translateY(-2px);
-  background: rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.35);
   color: #ffffff;
-  border-color: rgba(99, 102, 241, 0.6);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  border-color: rgba(165, 180, 252, 0.8);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
 }
 
 .action-btn-decrypt:active {
   transform: translateY(0);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .buttons-container {
     flex-direction: column;
+    gap: 12px;
+  }
+  
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    min-height: 50px;
+    font-size: 15px;
+    border-radius: 12px;
   }
 }
