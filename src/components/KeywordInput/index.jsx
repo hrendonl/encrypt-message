@@ -2,15 +2,23 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import "./KeywordInput.css";
+import { useCopyToClipboard } from "../../hooks/useCopyToClipboard";
 
 export const KeywordInput = ({ register, setValue, watch }) => {
   const { t } = useTranslation();
   const [showKey, setShowKey] = useState(false);
+  const { isCopy, copy } = useCopyToClipboard();
   
   const keywordValue = watch ? watch("keyword") || "" : "";
 
   const toggleKeyVisibility = () => {
     setShowKey((prev) => !prev);
+  };
+
+  const handleCopyKey = () => {
+    if (keywordValue) {
+      copy(keywordValue);
+    }
   };
 
   const handleGenerateKey = () => {
@@ -48,6 +56,16 @@ export const KeywordInput = ({ register, setValue, watch }) => {
           autoComplete="off"
         />
         <div className="input-actions">
+          {keywordValue && (
+            <button
+              type="button"
+              className={`input-action-btn ${isCopy ? "copy-success" : ""}`}
+              onClick={handleCopyKey}
+              title={isCopy ? t("form.keyword.copied") : t("form.keyword.copy")}
+            >
+              <i className={`bi ${isCopy ? "bi-check-lg" : "bi-copy"}`}></i>
+            </button>
+          )}
           <button
             type="button"
             className="input-action-btn"

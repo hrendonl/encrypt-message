@@ -84,6 +84,11 @@ input#keyword:focus {
   color: var(--text-main);
 }
 
+.input-action-btn.copy-success {
+  color: var(--primary);
+  background: rgba(0, 216, 87, 0.12);
+}
+
 .generate-btn:hover {
   color: var(--primary);
   transform: rotate(180deg);
