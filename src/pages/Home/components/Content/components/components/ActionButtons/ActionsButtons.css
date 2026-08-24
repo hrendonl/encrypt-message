@@ -1,31 +1,67 @@
-.button-primary {
-  background-color: var(--primary);
-  border: 1px solid #0b0c0e;
-  color: var(--dark-blue);
+.buttons-container {
+  display: flex;
+  gap: 14px;
+  width: 100%;
 }
 
 .button-primary,
 .button-secondary {
-  width: 50%;
-  font-size: 16px;
-  display: flex;
+  flex: 1;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
   justify-content: center;
-  column-gap: 5px;
   align-items: center;
+  gap: 8px;
   cursor: pointer;
-  padding: 0px 25px;
-  border-radius: 8px;
-  height: 40px;
-  font-weight: bold;
+  padding: 0 20px;
+  border-radius: var(--radius-md);
+  height: 48px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-.button-secondary {
-  background: #404650;
-  border: 1px solid #0b0c0e;
-  color: white;
+/* Encrypt Button (Logo Green #00d857) */
+.action-btn-encrypt {
+  background: linear-gradient(135deg, #00d857 0%, #00b84a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #05140d;
+  box-shadow: 0 4px 16px rgba(0, 216, 87, 0.25);
 }
 
-.buttons-container {
-  display: flex;
-  column-gap: 10px;
+.action-btn-encrypt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 216, 87, 0.4);
+  background: linear-gradient(135deg, #1ae068 0%, #00c44f 100%);
+}
+
+.action-btn-encrypt:active {
+  transform: translateY(0);
+}
+
+/* Decrypt Button (Indigo) */
+.action-btn-decrypt {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+}
+
+.action-btn-decrypt:hover {
+  transform: translateY(-2px);
+  background: rgba(99, 102, 241, 0.25);
+  color: #ffffff;
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.action-btn-decrypt:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .buttons-container {
+    flex-direction: column;
+  }
 }

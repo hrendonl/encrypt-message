@@ -14,7 +14,6 @@ export const Form = () => {
     watch,
     register,
     handleSubmit,
-    formState: { errors },
     setValue
   } = useForm({
     defaultValues: {
@@ -33,7 +32,7 @@ export const Form = () => {
   } = useHCEncrypt();
 
   const onSubmit = (data) => {
-    if (buttonActivated == "encrypt") {
+    if (buttonActivated === "encrypt") {
       encryptMessage(data.keyword, data.message);
     } else {
       decryptMessage(data.keyword, data.message);
@@ -41,23 +40,35 @@ export const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="form-element-container">
-        <div className="form-element-label">{t("form.keyword.label")}</div>
-        <KeywordInput register={register} />
-      </div>
+    <div className="cipher-card">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-element-container">
+          <label htmlFor="keyword" className="form-element-label">
+            <i className="bi bi-key-fill label-icon"></i>
+            {t("form.keyword.label")}
+          </label>
+          <KeywordInput register={register} setValue={setValue} watch={watch} />
+        </div>
+
         <MessageBox
           getMessage={watch}
           reset={setValue}
           register={register}
           resetProcessedMessage={resetProcessedMessage}
         />
-      <div className="form-element-container">
-        <ActionsButtons setButtonActivated={setButtonActivated} />
-      </div>
-      <div className="form-element-container">
-        <ResultBox processedMessage={processedMessage} watch={watch}/>
-      </div>
-    </form>
+
+        <div className="form-element-container">
+          <ActionsButtons setButtonActivated={setButtonActivated} />
+        </div>
+
+        <div className="form-element-container">
+          <ResultBox
+            processedMessage={processedMessage}
+            watch={watch}
+            setValue={setValue}
+          />
+        </div>
+      </form>
+    </div>
   );
 };

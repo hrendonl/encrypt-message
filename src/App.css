@@ -1,17 +1,32 @@
 :root {
-  --primary: #20d761;
-  --primary-light: #99fabb;
-  --secondary: #20D1D6;
-  --high-light: #ffffff;
-  --color-font: #242424;
-  --dark-1: #121418;
-  --dark-2: #1f202a;
-  --dark-blue: #13161c;
-  --placeholder-color: #646464;
-  --button-font-color: #121418;
-  --color-borde-azul: #343841;
-  --color-border-focus: #3acfd5;
-  --color-placeholder: #515863;
+  --primary: #00d857;
+  --primary-glow: rgba(0, 216, 87, 0.35);
+  --primary-hover: #00b84a;
+  --secondary: #6366f1;
+  --secondary-glow: rgba(99, 102, 241, 0.35);
+  --secondary-hover: #4f46e5;
+  --accent-cyan: #00f0ff;
+  
+  --bg-dark-base: #0a0d14;
+  --bg-card: rgba(16, 22, 34, 0.75);
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --bg-card-border-hover: rgba(0, 216, 87, 0.3);
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
+  
+  --font-main: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html, body {
@@ -21,8 +36,33 @@ html, body {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  width: 100%;
-  background-color: var(--dark-blue);
-  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--bg-dark-base);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(0, 216, 87, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(10, 13, 20, 0.8) 0%, #0a0d14 100%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 13, 20, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 216, 87, 0.4);
 }

@@ -1,9 +1,27 @@
 .copy-button {
-    display: flex;
-    column-gap: 5px;
-    background-color: transparent;
-    color: #9091a8;
-    border: 1px solid transparent;
-    cursor: pointer;
-  }
-  
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-family: var(--font-main);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.copy-button.copied {
+  background: rgba(0, 216, 87, 0.15);
+  border-color: rgba(0, 216, 87, 0.4);
+  color: var(--primary);
+}

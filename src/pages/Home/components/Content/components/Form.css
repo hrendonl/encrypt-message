@@ -1,27 +1,68 @@
-form {
+.cipher-card {
   width: 100%;
   max-width: 800px;
+  background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin: 30px 20px 60px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.cipher-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+form {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
-  padding: 50px 20px;
+  row-gap: 24px;
+  padding: 36px 32px;
   box-sizing: border-box;
 }
 
 .form-element-label {
-  color: #d6d7e4;
-  font-weight: bold;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.form-element-container{
+.label-icon {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.form-element-container {
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
-  overflow: hidden;
+  row-gap: 10px;
+  width: 100%;
 }
 
 .container-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 24px 18px;
+    row-gap: 20px;
+  }
+  .cipher-card {
+    margin: 16px 12px 40px;
+    border-radius: var(--radius-lg);
+  }
 }

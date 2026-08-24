@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import "./CopyButton.css";
 import { useCopyToClipboard } from "../../../../../../../../hooks/useCopyToClipboard"; 
@@ -11,13 +12,19 @@ export const CopyButton = ({ text, textContainerId }) => {
   };
 
   return (
-    <button type="button" className="copy-button" onClick={handleClick}>
-      {isCopy ? (
-        <i className="bi bi-check-lg"></i>
-      ) : (
-        <i className="bi bi-copy"></i>
-      )}
-      {isCopy ? t("action.copied") : t("action.copy")}
+    <button
+      type="button"
+      className={`copy-button ${isCopy ? "copied" : ""}`}
+      onClick={handleClick}
+      title={isCopy ? t("action.copied") : t("action.copy")}
+    >
+      <i className={`bi ${isCopy ? "bi-check-lg" : "bi-copy"}`}></i>
+      <span>{isCopy ? t("action.copied") : t("action.copy")}</span>
     </button>
   );
+};
+
+CopyButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  textContainerId: PropTypes.string.isRequired,
 };
