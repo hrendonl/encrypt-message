@@ -1,7 +1,7 @@
 # HC-Encrypt 🛡️ | Client-Side Cryptographic Suite
 
 <p align="center">
-  <img src="public/hcencript.png" alt="HC-Encrypt Logo" width="120" />
+  <img src="./src/assets/hcencript.png" alt="HC-Encrypt Logo" width="120" />
 </p>
 
 <p align="center">
